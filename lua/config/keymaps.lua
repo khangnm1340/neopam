@@ -20,6 +20,24 @@ vim.keymap.set("n", "<leader>ql", ":SessionManager load_last_session<CR>", { des
 vim.keymap.set("n", "<leader>qd", ":SessionManager delete_session<CR>", { desc = "Delete Session" })
 vim.keymap.set("n", "<C-q>", ":SessionManager save_current_session<CR>", { desc = "Save Current Session" })
 
+-- better up-down
+vim.keymap.set({ "n", "x" }, "j", "gj", { desc = "Down", silent = true })
+vim.keymap.set({ "n", "x" }, "<Down>", "gj", { desc = "Down", silent = true })
+vim.keymap.set({ "n", "x" }, "k", "gk", { desc = "Up", silent = true })
+vim.keymap.set({ "n", "x" }, "<Up>", "gk", { desc = "Up", silent = true })
+
+-- Function to toggle the 'showtabline' option
+local function toggle_tabline()
+  if vim.o.showtabline == 0 then
+    vim.o.showtabline = 2
+  else
+    vim.o.showtabline = 0
+  end
+end
+
+-- Map 'ua' to toggle the tabline visibility
+vim.keymap.set("n", "<leader>ua", toggle_tabline, { desc = "Toggle Tabline" })
+
 --- unbind toggle animate(ua)
 --- change uA to ua
 --- 3 diagnostic missing fields
