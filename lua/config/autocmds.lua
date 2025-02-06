@@ -23,3 +23,11 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.spell = false
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown", "text" },
+  callback = function()
+    vim.opt_local.textwidth = 75
+    vim.opt_local.formatoptions:append("t")
+  end,
+})
