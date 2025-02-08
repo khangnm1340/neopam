@@ -15,16 +15,16 @@ if vim.g.neovide then
   vim.keymap.set("i", "<C-S-v>", '<ESC>l"+Pli') -- Paste insert mode
 end
 
-vim.keymap.set("n", "<leader>qs", ":SessionManager load_session<CR>", { desc = "Load Session" })
-vim.keymap.set("n", "<leader>ql", ":SessionManager load_last_session<CR>", { desc = "Load Last Session" })
-vim.keymap.set("n", "<leader>qd", ":SessionManager delete_session<CR>", { desc = "Delete Session" })
-vim.keymap.set("n", "<C-q>", ":SessionManager save_current_session<CR>", { desc = "Save Current Session" })
-
 -- better up-down
-vim.keymap.set({ "n", "x" }, "j", "gj", { desc = "Down", silent = true })
-vim.keymap.set({ "n", "x" }, "<Down>", "gj", { desc = "Down", silent = true })
-vim.keymap.set({ "n", "x" }, "k", "gk", { desc = "Up", silent = true })
-vim.keymap.set({ "n", "x" }, "<Up>", "gk", { desc = "Up", silent = true })
+-- vim.keymap.set({ "n", "x" }, "j", "gj", { desc = "Down", silent = true })
+-- vim.keymap.set({ "n", "x" }, "<Down>", "gj", { desc = "Down", silent = true })
+-- vim.keymap.set({ "n", "x" }, "k", "gk", { desc = "Up", silent = true })
+-- vim.keymap.set({ "n", "x" }, "<Up>", "gk", { desc = "Up", silent = true })
+
+vim.keymap.set("n", "<leader>pp", function()
+  local current_file_path = vim.fn.expand("%:p")
+  print(current_file_path)
+end, { desc = "[P]rint current file [P]ath" })
 
 -- Function to toggle the 'showtabline' option
 local function toggle_tabline()
@@ -47,7 +47,7 @@ vim.keymap.set("n", "<leader>ua", toggle_tabline, { desc = "Toggle Tabline" })
 --
 -- Use <CR> to fold when in normal mode
 -- To see help about folds use `:help fold`
-vim.keymap.set("n", "<Tab>", function()
+vim.keymap.set("n", "<C-Tab>", function()
   -- Get the current line number
   local line = vim.fn.line(".")
   -- Get the fold level of the current line
@@ -209,6 +209,10 @@ end)
 
 vim.keymap.set("n", "<leader>so", function()
   fzf.files({ cwd = "/home/pampam/Documents/pam's" })
+end)
+
+vim.keymap.set("n", "<leader>sj", function()
+  fzf.files({ cwd = vim.fn.stdpath("config") })
 end)
 
 local function ToggleMouse()

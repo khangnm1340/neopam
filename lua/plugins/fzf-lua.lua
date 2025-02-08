@@ -6,7 +6,7 @@ return {
   dependencies = { "echasnovski/mini.icons" },
   opts = {
 
-    "hide",
+    -- "hide",
     winopts = {
       -- split = "belowright new",-- open in a split instead?
       -- "belowright new"  : split below
@@ -87,7 +87,7 @@ return {
         ["<M-h>"] = "toggle-help",
         ["<M-l>"] = "toggle-fullscreen",
         -- Only valid with the 'builtin' previewer
-        ["<M-i>"] = "toggle-preview-wrap",
+        ["<M-S-o>"] = "toggle-preview-wrap",
         ["<M-o>"] = "toggle-preview",
         ["<M-S-k>"] = "preview-page-up",
         ["<M-S-j>"] = "preview-page-down",

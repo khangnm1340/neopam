@@ -5,4 +5,5 @@ return {
   { "preservim/vim-pencil", enabled = false },
   -- { "folke/tokyonight.nvim", enabled = false },
   { "dgox16/oldworld.nvim", enabled = false },
+  -- { "lazy/noice.nvim", enabled = false },
 }

@@ -16,7 +16,7 @@
 
 return {
   "MeanderingProgrammer/render-markdown.nvim",
-  enabled = true,
+  dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
   -- Moved highlight creation out of opts as suggested by plugin maintainer
   -- There was no issue, but it was creating unnecessary noise when ran
   -- :checkhealth render-markdown
@@ -51,6 +51,8 @@ return {
     vim.cmd(string.format([[highlight Headline5Fg cterm=bold gui=bold guifg=%s]], color5_bg))
     vim.cmd(string.format([[highlight Headline6Fg cterm=bold gui=bold guifg=%s]], color6_bg))
   end,
+  ---@module 'render-markdown'
+  ---@type render.md.UserConfig
   opts = {
     bullet = {
       -- Turn on / off list bullet rendering
@@ -62,7 +64,7 @@ return {
       -- Determines how icons fill the available space:
       --  inline:  underlying text is concealed resulting in a left aligned icon
       --  overlay: result is left padded with spaces to hide any additional text
-      position = "inline",
+      position = "overlay",
       unchecked = {
         -- Replaces '[ ]' of 'task_list_marker_unchecked'
         icon = "   󰄱 ",
@@ -82,7 +84,7 @@ return {
     },
     html = {
       -- Turn on / off all HTML rendering
-      enabled = true,
+      enabled = false,
       comment = {
         -- Turn on / off HTML comment concealing
         conceal = false,
