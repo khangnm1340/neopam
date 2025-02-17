@@ -6,15 +6,15 @@ return {
     keys = { -- load the plugin only when using it's keybinding:
       { "<leader>uu", "<cmd>lua require('undotree').toggle()<cr>" },
     },
-    {
-      "folke/noice.nvim",
-      opts = {
-        lsp = {
-          signature = {
-            opts = {
-              size = {
-                max_height = 16,
-              },
+  },
+  {
+    "folke/noice.nvim",
+    opts = {
+      lsp = {
+        signature = {
+          opts = {
+            size = {
+              max_height = 16,
             },
           },
         },
