@@ -6,13 +6,47 @@ return {
     keys = { -- load the plugin only when using it's keybinding:
       { "<leader>uu", "<cmd>lua require('undotree').toggle()<cr>" },
     },
+    {
+      "folke/noice.nvim",
+      opts = {
+        lsp = {
+          signature = {
+            opts = {
+              size = {
+                max_height = 16,
+              },
+            },
+          },
+        },
+      },
+    },
   },
   {
-    "preservim/vim-pencil",
+    "williamboman/mason.nvim",
+    opts = { ensure_installed = { "clang-format", "ast-grep" } },
   },
   {
-    "dgox16/oldworld.nvim",
-    lazy = false,
-    priority = 1000,
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup()
+
+      vim.keymap.set("n", "<leader>p", ":Gitsigns preview_hunk<CR>", {})
+    end,
+  },
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    ---@type Flash.Config
+    ---@diagnostic disable-next-line: missing-fields
+    opts = {
+      labels = "jkluiohprewtfdsgvmcbxqy",
+    },
+      -- stylua: ignore
+      keys = {
+        { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+        { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+        { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+        { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      },
   },
 }

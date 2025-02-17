@@ -16,7 +16,7 @@
 --     require("harpoon")
 --   end,
 -- })
-
+--
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "markdown", "text" },
   callback = function()
@@ -24,10 +24,20 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "markdown", "text" },
+vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#242b3d" })
+
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+  pattern = { "*.md" },
   callback = function()
-    vim.opt_local.textwidth = 75
-    vim.opt_local.formatoptions:append("t")
+    vim.opt.colorcolumn = "80"
+    vim.opt.textwidth = 80
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
+  pattern = { "*.md" },
+  callback = function()
+    vim.opt.colorcolumn = ""
+    vim.opt.textwidth = 0
   end,
 })

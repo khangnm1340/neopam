@@ -16,6 +16,7 @@
 
 return {
   "MeanderingProgrammer/render-markdown.nvim",
+  -- enabled = false,
   dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
   -- Moved highlight creation out of opts as suggested by plugin maintainer
   -- There was no issue, but it was creating unnecessary noise when ran
@@ -24,8 +25,8 @@ return {
   init = function()
     -- Define color variables
     local color1_bg = "#24fbde"
-    local color2_bg = "#f6a007"
-    local color3_bg = "#81f737"
+    local color2_bg = "#E2B4BD"
+    local color3_bg = "#F6511D"
     local color4_bg = "#c67cf8"
     local color5_bg = "#0f857c"
     local color6_bg = "#396592"
@@ -51,9 +52,8 @@ return {
     vim.cmd(string.format([[highlight Headline5Fg cterm=bold gui=bold guifg=%s]], color5_bg))
     vim.cmd(string.format([[highlight Headline6Fg cterm=bold gui=bold guifg=%s]], color6_bg))
   end,
-  ---@module 'render-markdown'
-  ---@type render.md.UserConfig
   opts = {
+    -- render_modes = true,
     bullet = {
       -- Turn on / off list bullet rendering
       enabled = true,
@@ -67,7 +67,7 @@ return {
       position = "overlay",
       unchecked = {
         -- Replaces '[ ]' of 'task_list_marker_unchecked'
-        icon = "   󰄱 ",
+        icon = "󰄱 ",
         -- Highlight for the unchecked icon
         highlight = "RenderMarkdownUnchecked",
         -- Highlight for item associated with unchecked checkbox
@@ -75,7 +75,7 @@ return {
       },
       checked = {
         -- Replaces '[x]' of 'task_list_marker_checked'
-        icon = "   󰱒 ",
+        icon = "󰱒 ",
         -- Highlight for the checked icon
         highlight = "RenderMarkdownChecked",
         -- Highlight for item associated with checked checkbox

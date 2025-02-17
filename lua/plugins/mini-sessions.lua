@@ -13,6 +13,17 @@ end
 
 local config = {
   directory = vim.fn.stdpath("data") .. "/sessions", -- For global sessions
+  hooks = {
+    post = {
+      read = function()
+        local current_buf_filetype = vim.bo.filetype
+        if current_buf_filetype == "markdown" then
+          vim.opt.colorcolumn = "80"
+          vim.opt.textwidth = 80
+        end
+      end,
+    },
+  },
 }
 
 if vim.g.neovide then

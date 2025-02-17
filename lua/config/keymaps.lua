@@ -5,9 +5,19 @@
 
 ---@diagnostic disable-next-line: undefined-field
 if vim.g.neovide then
-  vim.keymap.set({ "n", "v" }, "<M-u>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
-  vim.keymap.set({ "n", "v" }, "<M-U>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
-  vim.keymap.set({ "n", "v" }, "<M-C-u>", ":lua vim.g.neovide_scale_factor = 1<CR>")
+  vim.keymap.set(
+    { "n", "v" },
+    "<M-u>",
+    ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>",
+    { desc = "Increase font size" }
+  )
+  vim.keymap.set(
+    { "n", "v" },
+    "<M-U>",
+    ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>",
+    { desc = "Decrease font size" }
+  )
+  vim.keymap.set({ "n", "v" }, "<M-C-u>", ":lua vim.g.neovide_scale_factor = 1<CR>", { desc = "Reset font size" })
 
   vim.keymap.set("n", "<C-S-v>", '"+P') -- Paste normal mode
   vim.keymap.set("v", "<C-S-v>", '"+P') -- Paste visual mode
@@ -16,10 +26,10 @@ if vim.g.neovide then
 end
 
 -- better up-down
--- vim.keymap.set({ "n", "x" }, "j", "gj", { desc = "Down", silent = true })
--- vim.keymap.set({ "n", "x" }, "<Down>", "gj", { desc = "Down", silent = true })
--- vim.keymap.set({ "n", "x" }, "k", "gk", { desc = "Up", silent = true })
--- vim.keymap.set({ "n", "x" }, "<Up>", "gk", { desc = "Up", silent = true })
+vim.keymap.set({ "n", "x" }, "j", "gj", { desc = "Down", silent = true })
+vim.keymap.set({ "n", "x" }, "<Down>", "gj", { desc = "Down", silent = true })
+vim.keymap.set({ "n", "x" }, "k", "gk", { desc = "Up", silent = true })
+vim.keymap.set({ "n", "x" }, "<Up>", "gk", { desc = "Up", silent = true })
 
 vim.keymap.set("n", "<leader>pp", function()
   local current_file_path = vim.fn.expand("%:p")
@@ -226,3 +236,6 @@ local function ToggleMouse()
 end
 
 vim.keymap.set("n", "<leader>tm", ToggleMouse)
+
+vim.keymap.set("n", "<leader>j", ":/#<CR>", { silent = true })
+vim.keymap.set("n", "<leader>k", ":?#<CR>", { silent = true })
