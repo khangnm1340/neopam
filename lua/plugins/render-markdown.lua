@@ -17,7 +17,15 @@
 return {
   "MeanderingProgrammer/render-markdown.nvim",
   -- enabled = false,
-  dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+  dependencies = {
+    {
+      "nvim-treesitter/nvim-treesitter",
+      opts = {
+        indent = { enable = false },
+      },
+    },
+    "echasnovski/mini.nvim",
+  }, -- if you use the mini.nvim suite
   -- Moved highlight creation out of opts as suggested by plugin maintainer
   -- There was no issue, but it was creating unnecessary noise when ran
   -- :checkhealth render-markdown

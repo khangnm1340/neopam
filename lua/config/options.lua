@@ -11,5 +11,3 @@ opt.number = false -- Print line number
 opt.relativenumber = false -- Relative line numbers
 opt.wrap = true --false -- Disable line wrap
 opt.swapfile = false --disable swapfile
--- opt.indentexpr = ""
-opt.indentexpr = ""
