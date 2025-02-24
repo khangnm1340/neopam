@@ -61,7 +61,7 @@ return {
     vim.cmd(string.format([[highlight Headline6Fg cterm=bold gui=bold guifg=%s]], color6_bg))
   end,
   opts = {
-    -- render_modes = true,
+    render_modes = true,
     bullet = {
       -- Turn on / off list bullet rendering
       enabled = true,

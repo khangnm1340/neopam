@@ -209,6 +209,9 @@ end, { desc = "[P]Fold all headings level 4 or above" })
 --                           End Folding section
 -------------------------------------------------------------------------------
 
+-------------------------------------------------------------------------------
+--                           Fzf-lua section
+-------------------------------------------------------------------------------
 local fzf = require("fzf-lua")
 
 vim.keymap.set("n", "<leader>fo", function()
@@ -218,12 +221,33 @@ vim.keymap.set("n", "<leader>fo", function()
 end)
 
 vim.keymap.set("n", "<leader>so", function()
-  fzf.files({ cwd = "/home/pampam/Documents/pam's" })
+  fzf.files({
+    cwd = "/home/pampam/Documents/pam's",
+    grep = "-v .obsidian",
+  })
+end)
+
+vim.keymap.set("n", "<leader>sl", function()
+  fzf.files({
+    search_path = {
+      "~/.config/neovide",
+      "~/.config/yazi/",
+      "~/.config/swayimg/",
+      "~/.config/ghostty/",
+      "~/.config/kanata/",
+      "~/.config/mpv/",
+      "~/.config/nushell",
+    },
+  })
 end)
 
 vim.keymap.set("n", "<leader>sj", function()
   fzf.files({ cwd = vim.fn.stdpath("config") })
 end)
+
+-------------------------------------------------------------------------------
+--                           End Fzf-lua section
+-------------------------------------------------------------------------------
 
 local function ToggleMouse()
   if vim.o.mouse == "a" then
@@ -237,5 +261,4 @@ end
 
 vim.keymap.set("n", "<leader>tm", ToggleMouse)
 
-vim.keymap.set("n", "<leader>j", ":/#<CR>", { silent = true })
-vim.keymap.set("n", "<leader>k", ":?#<CR>", { silent = true })
+vim.keymap.set("n", "<C-S-O>", ":b#<CR>", { noremap = true, silent = true })

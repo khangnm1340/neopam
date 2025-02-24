@@ -24,7 +24,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#242b3d" })
+vim.api.nvim_set_hl(0, "colorcolumn", { bg = "#242b3d" })
 
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   pattern = { "*.md" },
