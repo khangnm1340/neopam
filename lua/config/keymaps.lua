@@ -222,22 +222,8 @@ end)
 
 vim.keymap.set("n", "<leader>so", function()
   fzf.files({
-    cwd = "/home/pampam/Documents/pam's",
+    cwd = "/home/pampam/Documents/pam",
     grep = "-v .obsidian",
-  })
-end)
-
-vim.keymap.set("n", "<leader>sl", function()
-  fzf.files({
-    search_path = {
-      "~/.config/neovide",
-      "~/.config/yazi/",
-      "~/.config/swayimg/",
-      "~/.config/ghostty/",
-      "~/.config/kanata/",
-      "~/.config/mpv/",
-      "~/.config/nushell",
-    },
   })
 end)
 
@@ -262,3 +248,6 @@ end
 vim.keymap.set("n", "<leader>tm", ToggleMouse)
 
 vim.keymap.set("n", "<C-S-O>", ":b#<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>ii", function()
+  vim.opt.textwidth = 130
+end, { desc = "increase textwidth to 130" })

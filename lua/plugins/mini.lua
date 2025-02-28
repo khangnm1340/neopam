@@ -75,6 +75,7 @@ return {
       local gen_loader = require("mini.snippets").gen_loader
       require("mini.snippets").setup({
         snippets = {
+          enabled = false,
           -- Load custom file with global snippets first
           gen_loader.from_file("~/.config/nvim/snippets/global.json"),
 
