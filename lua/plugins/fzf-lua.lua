@@ -1,5 +1,6 @@
 return {
   "ibhagwan/fzf-lua",
+  enabled = false,
   -- optional for icon support
   -- dependencies = { "nvim-tree/nvim-web-devicons" },
   -- or if using mini.icons/mini.nvim
@@ -110,6 +111,7 @@ return {
         ["f4"] = "toggle-preview",
         ["alt-j"] = "down", -- CTRL-J moves the selection down
         ["alt-k"] = "up", -- CTRL-K moves the selection up
+        ["ctrl-q"] = "select-all+accept",
       },
     },
   },

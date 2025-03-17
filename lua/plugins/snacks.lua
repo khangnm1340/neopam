@@ -15,16 +15,16 @@ return
     },
     opts = {
       image = {
-        enabled = true,
+        -- enabled = true,
         -- your image configuration comes here
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
-        doc = {
-
-          enabled = true, -- Keep image support enabled for documents
-          inline = false, -- Disable inline image rendering
-          float = false, -- Disable floating image rendering
-        },
+        -- doc = {
+        --
+        --   enabled = true, -- Keep image support enabled for documents
+        --   inline = false, -- Disable inline image rendering
+        --   float = false, -- Disable floating image rendering
+        -- },
       },
     },
   },

@@ -1,6 +1,7 @@
 local M = {}
 ---@diagnostic disable-next-line: missing-fields
 require("tokyonight").setup({
+  style = "storm",
   on_highlights = function(hl, colors)
     -- Override the @markup.heading.1.markdown highlight group
     hl["@markup.heading.1.markdown"] = {

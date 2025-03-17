@@ -70,6 +70,7 @@ return {
           end,
         }),
       })
+      require("mini.align").setup()
 
       -- Setup
       local gen_loader = require("mini.snippets").gen_loader

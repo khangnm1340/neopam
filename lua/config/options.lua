@@ -3,6 +3,7 @@
 -- Add any additional options here
 
 vim.g.snacks_animate = false --true
+---@diagnostic disable-next-line: undefined-global
 LazyVim.terminal.setup("nu")
 
 local opt = vim.opt

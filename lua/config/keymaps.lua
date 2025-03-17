@@ -212,24 +212,45 @@ end, { desc = "[P]Fold all headings level 4 or above" })
 -------------------------------------------------------------------------------
 --                           Fzf-lua section
 -------------------------------------------------------------------------------
-local fzf = require("fzf-lua")
+local MYFLAG = false
+if MYFLAG then
+  local fzf = require("fzf-lua")
 
-vim.keymap.set("n", "<leader>fo", function()
-  local current_file_path = vim.api.nvim_buf_get_name(0)
-  local parent_directory = vim.fn.fnamemodify(current_file_path, ":p:h")
-  fzf.files({ cwd = parent_directory })
-end)
+  vim.keymap.set("n", "<leader>fo", function()
+    local current_file_path = vim.api.nvim_buf_get_name(0)
+    local parent_directory = vim.fn.fnamemodify(current_file_path, ":p:h")
+    fzf.files({ cwd = parent_directory })
+  end)
 
-vim.keymap.set("n", "<leader>so", function()
-  fzf.files({
-    cwd = "/home/pampam/Documents/pam",
-    grep = "-v .obsidian",
-  })
-end)
+  vim.keymap.set("n", "<leader>so", function()
+    fzf.files({
+      cwd = "/home/pampam/Documents/pam",
+      grep = "-v .obsidian",
+    })
+  end)
 
-vim.keymap.set("n", "<leader>sj", function()
-  fzf.files({ cwd = vim.fn.stdpath("config") })
-end)
+  vim.keymap.set("n", "<leader>sj", function()
+    fzf.files({ cwd = vim.fn.stdpath("config") })
+  end)
+  vim.keymap.set("n", "<leader>sll", function()
+    fzf.lsp_live_workspace_symbols()
+  end, { desc = "Worskpace symbols" })
+
+  vim.keymap.set("n", "<leader>slk", function()
+    fzf.lsp_document_symbols()
+  end, { desc = "Document symbols" })
+  vim.keymap.set("n", "<leader>sg", function()
+    fzf.grep_project()
+  end, { desc = "grep with fuzzy on" })
+
+  vim.keymap.set("n", "<leader>dd", function()
+    fzf.dap_breakpoints()
+  end, { desc = "search breakpoints" })
+
+  vim.keymap.set("n", "<leader>sz", function()
+    fzf.zoxide()
+  end, { desc = "zoxide" })
+end
 
 -------------------------------------------------------------------------------
 --                           End Fzf-lua section

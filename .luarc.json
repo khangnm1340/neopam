@@ -1,5 +1,8 @@
 {
     "diagnostics.globals": [
         "MiniFiles"
+    ],
+    "diagnostics.disable": [
+        "missing-parameter"
     ]
 }

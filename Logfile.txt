@@ -1,0 +1,11 @@
+﻿2025-03-15 13:20:47.782 DEBUG [11368] [main@18] main() called
+2025-03-15 13:20:47.782 DEBUG [11368] [getUserInput@7] getUserInput() called
+2025-03-15 13:21:57.605 DEBUG [11440] [main@18] main() called
+2025-03-15 13:21:57.605 DEBUG [11440] [getUserInput@7] getUserInput() called
+2025-03-15 13:23:18.372 DEBUG [11658] [main@18] main() called
+2025-03-15 13:23:18.372 DEBUG [11658] [getUserInput@7] getUserInput() called
+2025-03-15 13:23:52.846 DEBUG [11846] [main@18] main() called
+2025-03-15 13:23:52.846 DEBUG [11846] [getUserInput@7] getUserInput() called
+2025-03-15 13:54:21.674 DEBUG [13837] [main@18] main() called
+2025-03-15 14:01:34.912 DEBUG [15560] [main@18] main() called
+2025-03-15 14:01:34.912 DEBUG [15560] [getUserInput@7] getUserInput() called

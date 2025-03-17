@@ -14,7 +14,7 @@ return {
         signature = {
           opts = {
             size = {
-              max_height = 16,
+              max_height = 14,
             },
           },
         },
@@ -30,7 +30,7 @@ return {
   },
   {
     "williamboman/mason.nvim",
-    opts = { ensure_installed = { "clang-format", "ast-grep" } },
+    opts = { ensure_installed = { "clang-format", "ast-grep", "codelldb", "cpplint" } },
   },
   {
     "lewis6991/gitsigns.nvim",
