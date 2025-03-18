@@ -24,11 +24,11 @@ return {
             end, { buffer = buf_id, noremap = true, silent = true, desc = "Copy relative path to clipboard" })
           end,
         }),
-        vim.keymap.set("n", "<leader>r", function()
+        vim.keymap.set("n", "<leader>k", function()
           MiniFiles.open()
         end, { desc = "Mini Files" }),
 
-        vim.keymap.set("n", "<leader>e", function()
+        vim.keymap.set("n", "<leader>j", function()
           MiniFiles.open(vim.api.nvim_buf_get_name(0))
         end, { desc = "Mini Current Dir" }),
 

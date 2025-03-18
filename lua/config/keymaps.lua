@@ -272,3 +272,11 @@ vim.keymap.set("n", "<C-S-O>", ":b#<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>ii", function()
   vim.opt.textwidth = 130
 end, { desc = "increase textwidth to 130" })
+
+vim.keymap.set("n", "<C-w>e", function()
+  local filename = vim.fn.expand("%:p")
+  vim.cmd("close")
+  vim.cmd("e " .. filename)
+end, { desc = "Open window in a new buffer" })
+
+vim.keymap.set("n", "<C-a>", ":%y<CR>")

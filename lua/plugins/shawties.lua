@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-doc-name
 return {
   {
     "jiaoshijie/undotree",
@@ -30,7 +31,7 @@ return {
   },
   {
     "williamboman/mason.nvim",
-    opts = { ensure_installed = { "clang-format", "ast-grep", "codelldb", "cpplint" } },
+    opts = { ensure_installed = { "clang-format", "ast-grep", "codelldb", "cpplint", "debugpy" } },
   },
   {
     "lewis6991/gitsigns.nvim",

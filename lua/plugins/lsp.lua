@@ -5,6 +5,7 @@ return {
     "rcarriga/nvim-dap-ui",
     "nvim-neotest/nvim-nio",
     "theHamsta/nvim-dap-virtual-text",
+    "mfussenegger/nvim-dap-python",
   },
   config = function()
     require("nvim-dap-virtual-text").setup()
@@ -13,6 +14,7 @@ return {
     })
 
     local dap = require("dap")
+
     dap.adapters.codelldb = {
       type = "executable",
       command = "/home/pampam/.local/share/nvim/mason/bin/codelldb", -- or if not in $PATH: "/absolute/path/to/codelldb"
@@ -39,9 +41,10 @@ return {
         stopOnEntry = false,
       },
     }
+
     vim.keymap.set("n", "<F5>", function()
-      require("dap").continue()
       require("dapui").open()
+      require("dap").continue()
     end)
     vim.keymap.set("n", "<F1>", function()
       require("dap").step_over()
@@ -111,6 +114,15 @@ return {
       require("dapui").eval(nil, { enter = true })
     end, { desc = "Evaluate value under cursor" })
 
+    local KEYPY = false
+    if KEYPY then
+      vim.keymap.set("n", "<F6>", function()
+        require("dap-python").test_method()
+      end)
+      vim.keymap.set("n", "<F7>", function()
+        require("dap-python").test_class()
+      end)
+    end
     vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "red", linehl = "", numhl = "" })
   end,
 }
