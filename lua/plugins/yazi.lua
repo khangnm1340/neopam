@@ -3,7 +3,7 @@ return
 ---@type LazySpec
 {
   "mikavilpas/yazi.nvim",
-  -- enabled = false,
+  enabled = false,
   event = "VeryLazy",
   keys = {
     -- 👇 in this section, choose your own keymappings!

@@ -280,3 +280,8 @@ vim.keymap.set("n", "<C-w>e", function()
 end, { desc = "Open window in a new buffer" })
 
 vim.keymap.set("n", "<C-a>", ":%y<CR>")
+vim.keymap.set("n", "<leader>sR", ":GrugFar<CR>", { noremap = true, silent = true, desc = "Search and replace" })
+
+vim.keymap.set("n", "<leader>sr", function()
+  require("snacks").picker.resume()
+end, { desc = "Resume" })
