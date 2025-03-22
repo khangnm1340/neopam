@@ -31,7 +31,7 @@ return {
   },
   {
     "williamboman/mason.nvim",
-    opts = { ensure_installed = { "clang-format", "ast-grep", "codelldb", "cpplint", "debugpy" } },
+    opts = { ensure_installed = { "clang-format", "codelldb", "cpplint", "debugpy", "marksman" } },
   },
   {
     "lewis6991/gitsigns.nvim",
@@ -48,6 +48,16 @@ return {
     ---@diagnostic disable-next-line: missing-fields
     opts = {
       labels = "jkluiohprewtfdsgvmcbxqy",
+      highlight = {
+        -- backdrop = false,
+      },
+      modes = {
+        char = {
+          jump_labels = true,
+          label = { exclude = "o" },
+          multi_line = false,
+        },
+      },
     },
       -- stylua: ignore
       keys = {
@@ -56,5 +66,17 @@ return {
         { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
         { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
       },
+  },
+  {
+    "oskarrrrrrr/symbols.nvim",
+    config = function()
+      local r = require("symbols.recipes")
+      require("symbols").setup(r.DefaultFilters, r.AsciiSymbols, {
+        -- custom settings here
+        -- e.g. hide_cursor = false
+      })
+      vim.keymap.set("n", "<leader>ds", "<cmd> Symbols<CR>", { desc = "Symbols" })
+      vim.keymap.set("n", "<leader>dS", "<cmd> SymbolsClose<CR>", { desc = "SymbolsClose" })
+    end,
   },
 }

@@ -280,8 +280,23 @@ vim.keymap.set("n", "<C-w>e", function()
 end, { desc = "Open window in a new buffer" })
 
 vim.keymap.set("n", "<C-a>", ":%y<CR>")
-vim.keymap.set("n", "<leader>sR", ":GrugFar<CR>", { noremap = true, silent = true, desc = "Search and replace" })
+vim.keymap.set("n", "<leader>sR", ":GrugFarWithin<CR>", { noremap = true, silent = true, desc = "Search and replace" })
 
 vim.keymap.set("n", "<leader>sr", function()
   require("snacks").picker.resume()
 end, { desc = "Resume" })
+
+vim.keymap.set("n", "<S-q>", "@q", { noremap = true, silent = true })
+
+vim.keymap.set("n", "9", function()
+  require("render-markdown").buf_toggle()
+end)
+
+if vim.bo.filetype == "markdown" then
+  vim.keymap.set("n", "s", function()
+    vim.opt.conceallevel = 0
+    vim.cmd("RenderMarkdown buf_toggle")
+    require("flash").jump()
+    vim.cmd("RenderMarkdown buf_toggle")
+  end, { buffer = true, desc = "Flash (Toggle Render Markdown)" })
+end

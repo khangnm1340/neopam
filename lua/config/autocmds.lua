@@ -17,14 +17,15 @@
 --   end,
 -- })
 --
-vim.api.nvim_create_autocmd("FileType", {
+
+vim.api.nvim_set_hl(0, "colorcolumn", { bg = "#242b3d" })
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "markdown", "text" },
   callback = function()
     vim.opt_local.spell = false
   end,
 })
-
-vim.api.nvim_set_hl(0, "colorcolumn", { bg = "#242b3d" })
 
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   pattern = { "*.md" },
@@ -39,5 +40,19 @@ vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
   callback = function()
     vim.opt.colorcolumn = ""
     vim.opt.textwidth = 0
+  end,
+})
+
+vim.api.nvim_create_autocmd("InsertEnter", {
+  pattern = "*.md",
+  callback = function()
+    vim.cmd("RenderMarkdown buf_toggle") -- Toggle back to rendered view (conceal level should be 3)
+  end,
+})
+
+vim.api.nvim_create_autocmd("InsertLeave", {
+  pattern = "*.md",
+  callback = function()
+    vim.cmd("RenderMarkdown buf_toggle") -- Toggle back to rendered view (conceal level should be 3)
   end,
 })
