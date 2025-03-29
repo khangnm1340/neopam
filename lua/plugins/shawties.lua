@@ -1,14 +1,6 @@
 ---@diagnostic disable: undefined-doc-name
 return {
   {
-    "jiaoshijie/undotree",
-    dependencies = "nvim-lua/plenary.nvim",
-    config = true,
-    keys = { -- load the plugin only when using it's keybinding:
-      { "<leader>uu", "<cmd>lua require('undotree').toggle()<cr>" },
-    },
-  },
-  {
     "folke/noice.nvim",
     opts = {
       lsp = {
@@ -77,6 +69,28 @@ return {
       })
       vim.keymap.set("n", "<leader>ds", "<cmd> Symbols<CR>", { desc = "Symbols" })
       vim.keymap.set("n", "<leader>dS", "<cmd> SymbolsClose<CR>", { desc = "SymbolsClose" })
+    end,
+  },
+  {
+    "MagicDuck/grug-far.nvim",
+    config = function()
+      require("grug-far").setup({
+        keymaps = {
+          openNextLocation = { n = "<M-j>" },
+          openPrevLocation = { n = "<M-k>" },
+        },
+      })
+    end,
+  },
+  {
+    "opdavies/toggle-checkbox.nvim",
+    config = function()
+      vim.keymap.set(
+        "n",
+        "<leader>t",
+        ":lua require('toggle-checkbox').toggle()<CR>",
+        { silent = true, desc = "Toggle CheckBox" }
+      )
     end,
   },
 }
