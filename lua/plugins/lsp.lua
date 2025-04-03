@@ -58,9 +58,6 @@ return {
     vim.keymap.set("n", "<Leader>da", function()
       require("dap").toggle_breakpoint()
     end, { desc = "toggle breakpoint" })
-    vim.keymap.set("n", "<Leader>ds", function()
-      require("dap").set_breakpoint()
-    end, { desc = "set breakpoint" })
 
     require("dapui").setup({
 

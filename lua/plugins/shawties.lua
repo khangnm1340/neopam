@@ -75,6 +75,8 @@ return {
     "MagicDuck/grug-far.nvim",
     config = function()
       require("grug-far").setup({
+
+        visualSelectionUsage = "operate-within-range",
         keymaps = {
           openNextLocation = { n = "<M-j>" },
           openPrevLocation = { n = "<M-k>" },
@@ -82,6 +84,7 @@ return {
       })
     end,
   },
+  -- { "folke/which-key.nvim", opts = { disable = { ft = { "grug-far" } } } },
   {
     "opdavies/toggle-checkbox.nvim",
     config = function()

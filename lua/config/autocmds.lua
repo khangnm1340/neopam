@@ -42,17 +42,3 @@ vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
     vim.opt.textwidth = 0
   end,
 })
-
-vim.api.nvim_create_autocmd("InsertEnter", {
-  pattern = "*.md",
-  callback = function()
-    vim.cmd("RenderMarkdown buf_toggle") -- Toggle back to rendered view (conceal level should be 3)
-  end,
-})
-
-vim.api.nvim_create_autocmd("InsertLeave", {
-  pattern = "*.md",
-  callback = function()
-    vim.cmd("RenderMarkdown buf_toggle") -- Toggle back to rendered view (conceal level should be 3)
-  end,
-})
