@@ -36,18 +36,6 @@ vim.keymap.set("n", "<leader>pp", function()
   print(current_file_path)
 end, { desc = "[P]rint current file [P]ath" })
 
--- Function to toggle the 'showtabline' option
-local function toggle_tabline()
-  if vim.o.showtabline == 0 then
-    vim.o.showtabline = 2
-  else
-    vim.o.showtabline = 0
-  end
-end
-
--- Map 'ua' to toggle the tabline visibility
-vim.keymap.set("n", "<leader>ua", toggle_tabline, { desc = "Toggle Tabline" })
-
 --NOTE: FOLD
 -------------------------------------------------------------------------------
 --                           Folding section
@@ -199,9 +187,6 @@ end, { desc = "[P]Fold all headings level 4 or above" })
 -------------------------------------------------------------------------------
 
 vim.keymap.set("n", "<C-S-O>", ":b#<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>ii", function()
-  vim.opt.textwidth = 130
-end, { desc = "increase textwidth to 130" })
 
 vim.keymap.set("n", "<C-w>e", function()
   local filename = vim.fn.expand("%:p")
@@ -218,13 +203,3 @@ vim.keymap.set("n", "<S-q>", "@q", { noremap = true, silent = true })
 vim.keymap.set("n", "9", function()
   require("render-markdown").buf_toggle()
 end)
-
-vim.api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("my-grug-far-custom-keybinds", { clear = true }),
-  pattern = { "grug-far" },
-  callback = function()
-    vim.keymap.set("n", "<leader>k", function()
-      require("grug-far").goto_prev_input()
-    end, { buffer = true })
-  end,
-})

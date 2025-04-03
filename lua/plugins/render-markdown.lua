@@ -61,6 +61,15 @@ return {
     vim.cmd(string.format([[highlight Headline6Fg cterm=bold gui=bold guifg=%s]], color6_bg))
   end,
   opts = {
+    pipe_table = {
+      -- Turn on / off pipe table rendering.
+      enabled = false,
+    },
+
+    dash = {
+      -- Turn on / off thematic break rendering.
+      enabled = false,
+    },
     preset = "lazy",
     win_options = {
       conceallevel = { default = 0, rendered = 3 },
