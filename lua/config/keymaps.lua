@@ -9,13 +9,13 @@ if vim.g.neovide then
     { "n", "v" },
     "<M-u>",
     ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>",
-    { desc = "Increase font size" }
+    { desc = "Increase font size", silent = true }
   )
   vim.keymap.set(
     { "n", "v" },
     "<M-U>",
     ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>",
-    { desc = "Decrease font size" }
+    { desc = "Decrease font size", silent = true }
   )
   vim.keymap.set({ "n", "v" }, "<M-C-u>", ":lua vim.g.neovide_scale_factor = 1<CR>", { desc = "Reset font size" })
 
@@ -203,3 +203,34 @@ vim.keymap.set("n", "<S-q>", "@q", { noremap = true, silent = true })
 vim.keymap.set("n", "9", function()
   require("render-markdown").buf_toggle()
 end)
+
+function ToggleMouse()
+  if vim.o.mouse == "" then
+    vim.o.mouse = "a"
+    vim.notify("Mouse enabled", vim.log.levels.INFO)
+  else
+    vim.o.mouse = ""
+    vim.notify("Mouse disabled", vim.log.levels.INFO)
+  end
+end
+
+-- To map this function to a keybinding (e.g., <Leader>m):
+vim.keymap.set("n", "<Leader>mm", function()
+  ToggleMouse()
+end, { desc = "Toggle Mouse", silent = true })
+
+function Toggle_opacity()
+  if vim.g.neovide_opacity < 1 and vim.g.neovide_normal_opacity < 1 then
+    vim.g.neovide_opacity = 1
+    vim.g.neovide_normal_opacity = 1
+    vim.notify("Opacity disabled", vim.log.levels.INFO)
+  else
+    vim.g.neovide_opacity = 0.93
+    vim.g.neovide_normal_opacity = 0.7
+    vim.notify("Opacity enabled", vim.log.levels.INFO)
+  end
+end
+
+vim.keymap.set("n", "<Leader>ma", function()
+  Toggle_opacity()
+end, { desc = "Toggle opacity", silent = true })

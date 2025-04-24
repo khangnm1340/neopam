@@ -41,6 +41,17 @@ return {
         stopOnEntry = false,
       },
     }
+    dap.configurations.python = {
+      {
+        type = "python",
+        request = "launch",
+        name = "Launch file",
+        program = "${file}",
+        pythonPath = function()
+          return "/usr/bin/python"
+        end,
+      },
+    }
 
     vim.keymap.set("n", "<F5>", function()
       require("dapui").open()
@@ -58,6 +69,20 @@ return {
     vim.keymap.set("n", "<Leader>da", function()
       require("dap").toggle_breakpoint()
     end, { desc = "toggle breakpoint" })
+    vim.keymap.set("n", "<Leader>ds", function()
+      require("dap").clear_breakpoints()
+    end, { desc = "clear all breakpoints" })
+    vim.keymap.set("n", "<Leader>dd", function()
+      require("dap").disconnect()
+    end, { desc = "disconnect" })
+    vim.keymap.set("n", "<Leader>dj", function()
+      require("dap").clear_breakpoints()
+      require("dap").disconnect()
+      require("dapui").close()
+    end, { desc = "stoppu" })
+    vim.keymap.set("n", "<F6>", function()
+      require("dap").restart()
+    end, { desc = "restart" })
 
     require("dapui").setup({
 
@@ -66,11 +91,7 @@ return {
           elements = {
             {
               id = "scopes",
-              size = 0.25,
-            },
-            {
-              id = "breakpoints",
-              size = 0.25,
+              size = 0.50,
             },
             {
               id = "stacks",
@@ -104,22 +125,16 @@ return {
     vim.keymap.set("n", "<Leader>du", function()
       require("dapui").toggle()
     end, { desc = "Toggle DAP UI" })
-    vim.keymap.set("n", "<Leader>di", function()
-      require("dapui").float_element()
-    end, { desc = "Toggle DAP UI" })
-    vim.keymap.set("n", "<Leader>dj", function()
-      require("dapui").eval(nil, { enter = true })
-    end, { desc = "Evaluate value under cursor" })
 
-    local KEYPY = false
-    if KEYPY then
-      vim.keymap.set("n", "<F6>", function()
-        require("dap-python").test_method()
-      end)
-      vim.keymap.set("n", "<F7>", function()
-        require("dap-python").test_class()
-      end)
-    end
+    -- local KEYPY = false
+    -- if KEYPY then
+    --   vim.keymap.set("n", "<F6>", function()
+    --     require("dap-python").test_method()
+    --   end)
+    --   vim.keymap.set("n", "<F7>", function()
+    --     require("dap-python").test_class()
+    --   end)
+    -- end
     vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "red", linehl = "", numhl = "" })
   end,
 }

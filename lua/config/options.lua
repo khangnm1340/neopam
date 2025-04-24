@@ -13,3 +13,9 @@ opt.relativenumber = false -- Relative line numbers
 opt.wrap = true --false -- Disable line wrap
 opt.swapfile = false --disable swapfile
 opt.shiftwidth = 6
+opt.mouse = "" --disable mouse
+
+vim.g.neovide_opacity = 0.93
+vim.g.neovide_normal_opacity = 0.8
+
+vim.g.neovide_hide_mouse_when_typing = true

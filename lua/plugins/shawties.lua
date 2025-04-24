@@ -60,18 +60,6 @@ return {
       },
   },
   {
-    "oskarrrrrrr/symbols.nvim",
-    config = function()
-      local r = require("symbols.recipes")
-      require("symbols").setup(r.DefaultFilters, r.AsciiSymbols, {
-        -- custom settings here
-        -- e.g. hide_cursor = false
-      })
-      vim.keymap.set("n", "<leader>ds", "<cmd> Symbols<CR>", { desc = "Symbols" })
-      vim.keymap.set("n", "<leader>dS", "<cmd> SymbolsClose<CR>", { desc = "SymbolsClose" })
-    end,
-  },
-  {
     "MagicDuck/grug-far.nvim",
     config = function()
       require("grug-far").setup({
@@ -96,4 +84,5 @@ return {
       )
     end,
   },
+  { "jannis-baum/vivify.vim" },
 }
