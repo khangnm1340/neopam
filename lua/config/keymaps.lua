@@ -17,7 +17,12 @@ if vim.g.neovide then
     ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>",
     { desc = "Decrease font size", silent = true }
   )
-  vim.keymap.set({ "n", "v" }, "<M-C-u>", ":lua vim.g.neovide_scale_factor = 1<CR>", { desc = "Reset font size" })
+  vim.keymap.set(
+    { "n", "v" },
+    "<M-C-u>",
+    ":lua vim.g.neovide_scale_factor = 1<CR>",
+    { desc = "Reset font size", silent = true }
+  )
 
   vim.keymap.set("n", "<C-S-v>", '"+P') -- Paste normal mode
   vim.keymap.set("v", "<C-S-v>", '"+P') -- Paste visual mode
@@ -27,9 +32,7 @@ end
 
 -- better up-down
 vim.keymap.set({ "n", "x" }, "j", "gj", { desc = "Down", silent = true })
-vim.keymap.set({ "n", "x" }, "<Down>", "gj", { desc = "Down", silent = true })
 vim.keymap.set({ "n", "x" }, "k", "gk", { desc = "Up", silent = true })
-vim.keymap.set({ "n", "x" }, "<Up>", "gk", { desc = "Up", silent = true })
 
 vim.keymap.set("n", "<leader>pp", function()
   local current_file_path = vim.fn.expand("%:p")
@@ -194,7 +197,8 @@ vim.keymap.set("n", "<C-w>e", function()
   vim.cmd("e " .. filename)
 end, { desc = "Open window in a new buffer" })
 
-vim.keymap.set("n", "<C-a>", ":%y<CR>")
+vim.keymap.set("n", "<C-a>", ":%y<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-S-a>", ":%d<CR>", { noremap = true, silent = true })
 
 -- vim.keymap.del("n", "<Leader>sr")
 
@@ -215,7 +219,7 @@ function ToggleMouse()
 end
 
 -- To map this function to a keybinding (e.g., <Leader>m):
-vim.keymap.set("n", "<Leader>mm", function()
+vim.keymap.set("n", "<Leader>rm", function()
   ToggleMouse()
 end, { desc = "Toggle Mouse", silent = true })
 
@@ -225,12 +229,19 @@ function Toggle_opacity()
     vim.g.neovide_normal_opacity = 1
     vim.notify("Opacity disabled", vim.log.levels.INFO)
   else
-    vim.g.neovide_opacity = 0.93
-    vim.g.neovide_normal_opacity = 0.7
+    vim.g.neovide_opacity = 0.9
+    vim.g.neovide_normal_opacity = 0.85
+    -- vim.g.neovide_opacity = 0.7
+    -- vim.g.neovide_normal_opacity = 0.5
     vim.notify("Opacity enabled", vim.log.levels.INFO)
   end
 end
 
-vim.keymap.set("n", "<Leader>ma", function()
+vim.keymap.set("n", "<Leader>ro", function()
   Toggle_opacity()
 end, { desc = "Toggle opacity", silent = true })
+
+vim.keymap.del("n", "<leader>fF") -- Unmap in normal mode
+vim.keymap.del("n", "<leader>qS")
+vim.keymap.del("n", "<leader>ql")
+vim.keymap.del("n", "<leader>qd")

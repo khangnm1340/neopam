@@ -5,6 +5,9 @@ return {
     events = { "BufWritePost", "BufReadPost" },
     linters_by_ft = {
       cpp = { "cpplint" },
+      html = { "djlint" },
+      htmldjango = { "djlint" },
+      -- python = { "mypy" },
       -- Use the "*" filetype to run linters on all filetypes.
       -- ['*'] = { 'global linter' },
       -- Use the "_" filetype to run linters on filetypes that don't have other linters configured.

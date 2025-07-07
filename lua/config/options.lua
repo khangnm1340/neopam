@@ -15,7 +15,13 @@ opt.swapfile = false --disable swapfile
 opt.shiftwidth = 6
 opt.mouse = "" --disable mouse
 
-vim.g.neovide_opacity = 0.93
-vim.g.neovide_normal_opacity = 0.8
+-- vim.g.neovide_opacity = 0.9
+-- vim.g.neovide_normal_opacity = 0.85
+-- vim.g.neovide_cursor_vfx_mode = "pixiedust"
+vim.g.neovide_cursor_trail_size = 1
+vim.g.neovide_cursor_animation_length = 0.1
 
 vim.g.neovide_hide_mouse_when_typing = true
+
+vim.api.nvim_set_keymap("v", "p", "P", { noremap = true, silent = true })
+-- vim.o.background = "light"

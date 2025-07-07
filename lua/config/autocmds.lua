@@ -18,7 +18,7 @@
 -- })
 --
 
-vim.api.nvim_set_hl(0, "colorcolumn", { bg = "#242b3d" })
+-- vim.api.nvim_set_hl(0, "colorcolumn", { bg = "#242b3d" })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "markdown", "text" },

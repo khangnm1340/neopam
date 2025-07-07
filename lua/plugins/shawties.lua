@@ -3,6 +3,16 @@ return {
   {
     "folke/noice.nvim",
     opts = {
+      routes = {
+        {
+          filter = {
+            event = "lsp",
+            kind = "progress",
+            find = "jdtls",
+          },
+          opts = { skip = true },
+        },
+      },
       lsp = {
         signature = {
           opts = {
@@ -22,10 +32,6 @@ return {
     },
   },
   {
-    "williamboman/mason.nvim",
-    opts = { ensure_installed = { "clang-format", "codelldb", "cpplint", "debugpy", "marksman" } },
-  },
-  {
     "lewis6991/gitsigns.nvim",
     config = function()
       require("gitsigns").setup()
@@ -39,7 +45,7 @@ return {
     ---@type Flash.Config
     ---@diagnostic disable-next-line: missing-fields
     opts = {
-      labels = "jkluiohprewtfdsgvmcbxqy",
+      labels = "jkluiohprewtfsgvmbq",
       highlight = {
         -- backdrop = false,
       },
@@ -47,16 +53,19 @@ return {
         char = {
           jump_labels = true,
           label = { exclude = "o" },
-          multi_line = false,
+          multi_line = true,
+          highlight = {
+            backdrop = true,
+          },
         },
       },
     },
       -- stylua: ignore
       keys = {
         { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-        { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter({labels = "jkluiohprewtfdsgvmcbxqy"}) end, desc = "Flash Treesitter" },
-        { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-        { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+        { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter({labels = "jkluiohprewtfsgvmcbq"}) end, desc = "Flash Treesitter" },
+        -- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+        -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
       },
   },
   {

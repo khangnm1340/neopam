@@ -32,16 +32,21 @@ return {
   -- https://github.com/MeanderingProgrammer/render-markdown.nvim/issues/138#issuecomment-2295422741
   init = function()
     -- Define color variables
-    local color1_bg = "#24fbde"
-    local color2_bg = "#E2B4BD"
-    local color3_bg = "#F6511D"
-    local color4_bg = "#c67cf8"
-    local color5_bg = "#0f857c"
+    local color1_bg = "#076678"
+    local color2_bg = "#8f3f71"
+    local color3_bg = "#af3a03"
+    local color4_bg = "#ac7ece"
+    local color5_bg = "#d2c962"
     local color6_bg = "#396592"
-    local color_fg = "#000000" -- Foreground Color
+    local color_fg = "#fbf1c7" -- Foreground Color
     -- local color_sign = "#ebfafa"
     -- Heading colors (when HOVERED over), extends through the entire line
     vim.cmd(string.format([[highlight @markup.heading.1.markdown cterm=bold gui=bold guifg=%s]], color1_bg))
+    vim.cmd(string.format([[highlight @markup.heading.2.markdown cterm=bold gui=bold guifg=%s]], color2_bg))
+    vim.cmd(string.format([[highlight @markup.heading.3.markdown cterm=bold gui=bold guifg=%s]], color3_bg))
+    vim.cmd(string.format([[highlight @markup.heading.4.markdown cterm=bold gui=bold guifg=%s]], color4_bg))
+    vim.cmd(string.format([[highlight @markup.heading.5.markdown cterm=bold gui=bold guifg=%s]], color5_bg))
+    vim.cmd(string.format([[highlight @markup.heading.6.markdown cterm=bold gui=bold guifg=%s]], color6_bg))
 
     -- Heading colors (when not hovered over), extends through the entire line
     vim.cmd(string.format([[highlight Headline1Bg guifg=%s guibg=%s]], color_fg, color1_bg))
@@ -68,7 +73,7 @@ return {
 
     dash = {
       -- Turn on / off thematic break rendering.
-      enabled = false,
+      enabled = true,
     },
     preset = "lazy",
     win_options = {
