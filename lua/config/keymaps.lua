@@ -240,8 +240,3 @@ end
 vim.keymap.set("n", "<Leader>ro", function()
   Toggle_opacity()
 end, { desc = "Toggle opacity", silent = true })
-
-vim.keymap.del("n", "<leader>fF") -- Unmap in normal mode
-vim.keymap.del("n", "<leader>qS")
-vim.keymap.del("n", "<leader>ql")
-vim.keymap.del("n", "<leader>qd")

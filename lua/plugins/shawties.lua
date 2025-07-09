@@ -81,7 +81,6 @@ return {
       })
     end,
   },
-  -- { "folke/which-key.nvim", opts = { disable = { ft = { "grug-far" } } } },
   {
     "opdavies/toggle-checkbox.nvim",
     config = function()

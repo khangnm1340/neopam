@@ -24,4 +24,4 @@ vim.g.neovide_cursor_animation_length = 0.1
 vim.g.neovide_hide_mouse_when_typing = true
 
 vim.api.nvim_set_keymap("v", "p", "P", { noremap = true, silent = true })
--- vim.o.background = "light"
+vim.o.background = "light"

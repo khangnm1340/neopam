@@ -7,6 +7,7 @@ return
     priority = 1000,
 
     opts = {
+      dashboard = { enabled = false },
       picker = {
       -- stylua: ignore start
       exclude = { "CurseForge", "discord", "google-chrome", "legcord", "chromium", "Cursor", "obsidian", "pgadmin4", "vesktop", "tmp_files", "GIMP", "zathura", "Code - OSS", "Google", "calibre", "libreoffice", "wezterm", "tmux/plugins", "nvim.bak", "obs-studio", "shaders", "presets", "Vencord","playlists" },
@@ -15,9 +16,19 @@ return
         layout = {
           preset = "ivy_split",
         },
+        win = {
+          -- input window
+          input = {
+            keys = {
+              ["<A-k>"] = { "cycle_win", mode = { "n", "i" } },
+            },
+          },
+        },
       },
     },
     keys = {
+
+      { "<leader>fF", false },
       {
         "<leader>;",
         ft = { "markdown" },
@@ -37,6 +48,14 @@ return
         end,
         desc = "Find files in CWD (Snacks.nvim)",
       },
+
+      {
+        "<leader>fC",
+        function()
+          require("snacks.picker").files({ cwd = vim.fn.expand("~/.config") })
+        end,
+        desc = "Find files in ~/.config (Snacks.nvim)",
+      },
       {
         "<leader>fj", -- 'z' for zoxide
         function()
@@ -46,13 +65,19 @@ return
       },
     },
   },
+  -- Lua
   {
-    "folke/persistence.nvim",
-    event = "BufReadPre",
-    opts = {},
-  -- stylua: ignore
-  keys = {
-    { "<leader>qs", function() require("persistence").select() end,desc = "Select Session" },
-  },
+    "olimorris/persisted.nvim",
+    event = "VimEnter", -- Ensure the plugin loads only when a buffer has been loaded
+    opts = {
+      ignore_dirs = { vim.fn.expand("~"), exact = true },
+    },
+    keys = {
+      { "<leader>qs", "<cmd>SessionSave<CR>|<cmd>SessionSelect<CR>", desc = "Load Session" },
+      -- Key for loading the last session
+      { "<leader>ql", "<cmd>SessionLoadLast<CR>", desc = "Load Last Session" },
+      -- Key for deleting the current session
+      { "<leader>qd", "<cmd>SessionDelete<CR>", desc = "Delete Session" },
+    },
   },
 }

@@ -3,12 +3,30 @@ local M = {}
 local function create_session()
   vim.ui.input({ prompt = "Enter new session name: " }, function(new_name)
     if new_name then
+      vim.cmd("%bd")
       MiniSessions.write(new_name, { force = true })
       print("Session created with name: " .. new_name)
+      vim.cmd("enew")
     else
       print("Session creation cancelled.")
     end
   end)
+end
+
+local config_session_name = "config.vim"
+local notes_session_name = "Daily_Notes.vim"
+local draft_session_name = "draft.vim"
+
+local function switch_to_config_session()
+  MiniSessions.read(config_session_name)
+end
+
+local function switch_to_notes_session()
+  MiniSessions.read(notes_session_name)
+end
+
+local function switch_to_draft_session()
+  MiniSessions.read(draft_session_name)
 end
 
 local config = {
@@ -33,8 +51,11 @@ end
 require("mini.sessions").setup(config)
 
 vim.keymap.set("n", "<leader>qs", ":lua MiniSessions.select('read')<CR>", { desc = "Load Session", silent = true })
-vim.keymap.set("n", "<leader>ql", ":lua MiniSessions.read()<CR>", { desc = "Load Last Session", silent = true })
+vim.keymap.set("n", "<C-S-I>", ":lua MiniSessions.read()<CR>", { desc = "Load Last Session", silent = true })
 vim.keymap.set("n", "<leader>qd", ":lua MiniSessions.select('delete')<CR>", { desc = "Delete Session" })
+vim.keymap.set("n", "<C-S-J>", switch_to_config_session, { desc = "Switch to config session" })
+vim.keymap.set("n", "<C-S-K>", switch_to_notes_session, { desc = "Switch to notes session" })
+vim.keymap.set("n", "<C-S-L>", switch_to_draft_session, { desc = "Switch to draft session" })
 
 vim.api.nvim_create_user_command("CreateSession", create_session, {}) -- No args
 vim.keymap.set("n", "<leader>qc", ":CreateSession<CR>", { desc = "Create Session" })
