@@ -13,22 +13,6 @@ local function create_session()
   end)
 end
 
-local config_session_name = "config.vim"
-local notes_session_name = "Daily_Notes.vim"
-local draft_session_name = "draft.vim"
-
-local function switch_to_config_session()
-  MiniSessions.read(config_session_name)
-end
-
-local function switch_to_notes_session()
-  MiniSessions.read(notes_session_name)
-end
-
-local function switch_to_draft_session()
-  MiniSessions.read(draft_session_name)
-end
-
 local config = {
   directory = vim.fn.stdpath("data") .. "/sessions", -- For global sessions
   hooks = {
@@ -50,12 +34,24 @@ end
 
 require("mini.sessions").setup(config)
 
+local config_session_name = "config.vim"
+local notes_session_name = "Daily_Notes.vim"
+local draft_session_name = "draft.vim"
+local session_session_name = "nvim_session.vim"
+
 vim.keymap.set("n", "<leader>qs", ":lua MiniSessions.select('read')<CR>", { desc = "Load Session", silent = true })
 vim.keymap.set("n", "<C-S-I>", ":lua MiniSessions.read()<CR>", { desc = "Load Last Session", silent = true })
 vim.keymap.set("n", "<leader>qd", ":lua MiniSessions.select('delete')<CR>", { desc = "Delete Session" })
-vim.keymap.set("n", "<C-S-J>", switch_to_config_session, { desc = "Switch to config session" })
-vim.keymap.set("n", "<C-S-K>", switch_to_notes_session, { desc = "Switch to notes session" })
-vim.keymap.set("n", "<C-S-L>", switch_to_draft_session, { desc = "Switch to draft session" })
+
+vim.keymap.set("n", "<C-S-J>", function()
+  require("mini.sessions").read(config_session_name)
+end, { desc = "Switch to config session" })
+vim.keymap.set("n", "<C-S-K>", function()
+  require("mini.sessions").read(notes_session_name)
+end, { desc = "Switch to notes session" })
+vim.keymap.set("n", "<C-S-L>", function()
+  require("mini.sessions").read(session_session_name)
+end, { desc = "Switch to session session" })
 
 vim.api.nvim_create_user_command("CreateSession", create_session, {}) -- No args
 vim.keymap.set("n", "<leader>qc", ":CreateSession<CR>", { desc = "Create Session" })

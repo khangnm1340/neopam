@@ -10,7 +10,7 @@ return
       dashboard = { enabled = false },
       picker = {
       -- stylua: ignore start
-      exclude = { "CurseForge", "discord", "google-chrome", "legcord", "chromium", "Cursor", "obsidian", "pgadmin4", "vesktop", "tmp_files", "GIMP", "zathura", "Code - OSS", "Google", "calibre", "libreoffice", "wezterm", "tmux/plugins", "nvim.bak", "obs-studio", "shaders", "presets", "Vencord","playlists" },
+      exclude = { "CurseForge", "discord", "google-chrome", "legcord", "chromium", "Cursor", "obsidian", "pgadmin4", "vesktop", "tmp_files", "GIMP", "zathura/zathura-theme","zathura/zathura", "Code - OSS", "Google", "calibre", "libreoffice", "wezterm", "tmux/plugins", "nvim.bak", "obs-studio", "shaders", "presets", "Vencord","playlists","FreeTube" },
 
         -- stylua: ignore end
         layout = {
@@ -21,6 +21,7 @@ return
           input = {
             keys = {
               ["<A-k>"] = { "cycle_win", mode = { "n", "i" } },
+              ["<C-C>"] = { "toggle_cwd", mode = { "n", "i" } },
             },
           },
         },

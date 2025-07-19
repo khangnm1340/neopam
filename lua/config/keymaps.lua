@@ -240,3 +240,7 @@ end
 vim.keymap.set("n", "<Leader>ro", function()
   Toggle_opacity()
 end, { desc = "Toggle opacity", silent = true })
+
+vim.keymap.del("n", "gcc")
+vim.keymap.del("n", "gco")
+vim.keymap.del("n", "gcO")

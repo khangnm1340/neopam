@@ -5,7 +5,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+vim.api.nvim_create_autocmd({ "VimEnter", "BufWinEnter" }, {
   pattern = { "*.md" },
   callback = function()
     vim.opt.colorcolumn = "80"

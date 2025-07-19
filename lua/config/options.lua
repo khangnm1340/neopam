@@ -25,3 +25,6 @@ vim.g.neovide_hide_mouse_when_typing = true
 
 vim.api.nvim_set_keymap("v", "p", "P", { noremap = true, silent = true })
 vim.o.background = "light"
+
+vim.opt.shell = "bash"
+vim.opt.shellcmdflag = "-c"

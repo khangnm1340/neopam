@@ -11,6 +11,7 @@ return {
   { "akinsho/bufferline.nvim", enabled = false },
   { "Vigemus/iron.nvim", enabled = false },
   { "echasnovski/mini.sessions", enabled = false },
+  -- {"nvim-lualine/lualine.nvim", enabled = false}
 
   -- { "folke/which-key.nvim", enabled = false },
   -- { "nvim-treesitter/nvim-treesitter", enabled = false },

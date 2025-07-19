@@ -93,4 +93,5 @@ return {
     end,
   },
   { "jannis-baum/vivify.vim" },
+  { "wakatime/vim-wakatime", lazy = false },
 }

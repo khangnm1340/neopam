@@ -15,20 +15,13 @@ return {
       { "<leader><down>", mode = { "n", "x" }, function() require("multicursor-nvim").lineSkipCursor(1) end,
       desc = "Multicursor: Skip cursor below", },
 
-      -- Add and remove cursors with control + left click.
-      { "<c-leftmouse>", mode = "n", function() require("multicursor-nvim").handleMouse() end,
-      desc = "Multicursor: Handle Mouse Click", },
-      { "<c-leftdrag>", mode = "n", function() require("multicursor-nvim").handleMouseDrag() end,
-      desc = "Multicursor: Handle Mouse Drag", },
-      { "<c-leftrelease>", mode = "n", function() require("multicursor-nvim").handleMouseRelease() end,
-      desc = "Multicursor: Handle Mouse Release", },
 
       -- Disable and enable cursors.
       { "<c-q>", mode = { "n", "x" }, function() require("multicursor-nvim").toggleCursor() end,
       desc = "Multicursor: Toggle Cursors", },
 
-      { "<leader>m", mode = { "n", "x" }, function() require("multicursor-nvim").matchAddCursor(1) end, },
-      { "<leader>M", mode = { "n", "x" }, function() require("multicursor-nvim").matchSkipCursor(1) end, },
+      -- { "<leader>m", mode = { "n", "x" }, function() require("multicursor-nvim").matchAddCursor(1) end, },
+      -- { "<leader>M", mode = { "n", "x" }, function() require("multicursor-nvim").matchSkipCursor(1) end, },
       { "<leader>X", mode = "x", function() require("multicursor-nvim").splitCursors() end, },
       -- Append/insert for each line of visual selections.
       -- Similar to block selection insertion.
@@ -38,8 +31,11 @@ return {
       { "<leader>gt", mode = "x", function() require("multicursor-nvim").transposeCursors(1) end, },
       { "<leader>gT", mode = "x", function() require("multicursor-nvim").transposeCursors(-1) end, },
       { "<leader>A", mode = { "n", "x" }, function() require("multicursor-nvim").matchAllAddCursors() end, },
-      { "<leader>a", mode = "n", function() require("multicursor-nvim").alignCursors() end, },
       { "<leader>M", mode = "x", function() require("multicursor-nvim").matchCursors() end, },
+-- Increment/decrement sequences, treaing all cursors as one sequence.
+      {"g<c-a>",mode = {"n", "x"},  function() require("multicursor-nvim").sequenceIncrement() end},
+      {"g<c-x>",mode = {"n", "x"},  function() require("multicursor-nvim").sequenceDecrement() end} 
+,
 
       -- stylua: ignore end
 
