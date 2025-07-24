@@ -9,7 +9,7 @@ return {
   { "mikavilpas/yazi.nvim", enabled = false },
   { "akinsho/bufferline.nvim", enabled = false },
   { "akinsho/bufferline.nvim", enabled = false },
-  { "Vigemus/iron.nvim", enabled = false },
+  -- { "Vigemus/iron.nvim", enabled = false },
   { "echasnovski/mini.sessions", enabled = false },
   -- {"nvim-lualine/lualine.nvim", enabled = false}
 

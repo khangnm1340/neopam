@@ -20,7 +20,7 @@ return {
       { "<c-q>", mode = { "n", "x" }, function() require("multicursor-nvim").toggleCursor() end,
       desc = "Multicursor: Toggle Cursors", },
 
-      -- { "<leader>m", mode = { "n", "x" }, function() require("multicursor-nvim").matchAddCursor(1) end, },
+      { "<leader>m", mode = { "n", "x" }, function() require("multicursor-nvim").matchAddCursor(1) end, },
       -- { "<leader>M", mode = { "n", "x" }, function() require("multicursor-nvim").matchSkipCursor(1) end, },
       { "<leader>X", mode = "x", function() require("multicursor-nvim").splitCursors() end, },
       -- Append/insert for each line of visual selections.

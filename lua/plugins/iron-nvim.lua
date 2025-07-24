@@ -27,7 +27,7 @@ return {
             command = { "bash" },
           },
           python = {
-            command = { "ipython", "--no-autoindent" }, -- or { "ipython", "--no-autoindent" }
+            command = { "/home/pampam/Documents/UTH/DataMining/prawl_tests/.venv/bin/ipython", "--no-autoindent" }, -- or { "ipython", "--no-autoindent" }
             format = common.bracketed_paste_python,
             block_dividers = { "# %%", "#%%" },
           },
