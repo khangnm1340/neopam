@@ -36,7 +36,7 @@ require("mini.sessions").setup(config)
 
 local config_session_name = "config.vim"
 local notes_session_name = "Daily_Notes.vim"
-local draft_session_name = "draft.vim"
+local data_mining = "data_mining"
 local session_session_name = "nvim_session.vim"
 
 vim.keymap.set("n", "<leader>qs", ":lua MiniSessions.select('read')<CR>", { desc = "Load Session", silent = true })
@@ -50,8 +50,8 @@ vim.keymap.set("n", "<C-S-K>", function()
   require("mini.sessions").read(notes_session_name)
 end, { desc = "Switch to notes session" })
 vim.keymap.set("n", "<C-S-L>", function()
-  require("mini.sessions").read(session_session_name)
-end, { desc = "Switch to session session" })
+  require("mini.sessions").read(data_mining)
+end, { desc = "Switch to data_mining session" })
 
 vim.api.nvim_create_user_command("CreateSession", create_session, {}) -- No args
 vim.keymap.set("n", "<leader>qc", ":CreateSession<CR>", { desc = "Create Session" })

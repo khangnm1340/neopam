@@ -45,7 +45,7 @@ return {
     ---@type Flash.Config
     ---@diagnostic disable-next-line: missing-fields
     opts = {
-      labels = "jkluiohprewtfsgvmbq",
+      labels = "jkluioprewtfsgvmbq",
       highlight = {
         -- backdrop = false,
       },
@@ -100,12 +100,15 @@ return {
       vim.g.slime_target = "tmux"
       vim.g.slime_default_config = {
         socket_name = "default",
-        target_pane = ":{next}.",
+        -- target_pane = ":{next}.",
+        target_pane = ":.{next}",
       }
       vim.g.slime_dont_ask_default = 1
       vim.g.slime_bracketed_paste = 1
 
-      vim.keymap.set({ "n", "v" }, "<C-c><C-c>", ":SlimeSend<CR>", { desc = "Slime: Send Region/Line" })
+      vim.keymap.del("n", "<C-c>v", { silent = true })
+      vim.keymap.del("n", "<C-c><C-c>", { silent = true })
+      vim.keymap.set({ "n", "v" }, "<C-c>", ":SlimeSend<CR>", { desc = "Slime: Send Region/Line" })
     end,
   },
 }

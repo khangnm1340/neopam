@@ -10,6 +10,14 @@ return {
 
   {
     "neovim/nvim-lspconfig",
+    init = function()
+      local keys = require("lazyvim.plugins.lsp.keymaps").get()
+      keys[#keys + 1] = { "<C-k>", false, mode = { "i" } }
+      -- stylua: ignore
+      keys[#keys + 1] = { "gk", function() return vim.lsp.buf.signature_help() end, mode = { "n" }, }
+      -- stylua: ignore
+      keys[#keys + 1] = { "<C-l>", function() return vim.lsp.buf.signature_help() end, mode = { "i" }, }
+    end,
     opts = {
       servers = {
         djlsp = {},
