@@ -29,3 +29,6 @@ vim.o.background = "light"
 
 vim.opt.shell = "bash"
 vim.opt.shellcmdflag = "-c"
+
+vim.opt.title = true
+vim.opt.titlestring = vim.fs.basename(vim.fn.getcwd())

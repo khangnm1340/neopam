@@ -95,6 +95,12 @@ return {
   { "jannis-baum/vivify.vim" },
   { "wakatime/vim-wakatime", lazy = false },
   {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup()
+    end,
+  },
+  {
     "jpalardy/vim-slime",
     config = function()
       vim.g.slime_target = "tmux"

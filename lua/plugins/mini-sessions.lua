@@ -40,7 +40,7 @@ local data_mining = "data_mining"
 local session_session_name = "nvim_session.vim"
 
 vim.keymap.set("n", "<leader>qs", ":lua MiniSessions.select('read')<CR>", { desc = "Load Session", silent = true })
-vim.keymap.set("n", "<C-S-I>", ":lua MiniSessions.read()<CR>", { desc = "Load Last Session", silent = true })
+vim.keymap.set("n", "<C-S-O>", ":lua MiniSessions.read()<CR>", { desc = "Load Last Session", silent = true })
 vim.keymap.set("n", "<leader>qd", ":lua MiniSessions.select('delete')<CR>", { desc = "Delete Session" })
 
 vim.keymap.set("n", "<C-S-J>", function()

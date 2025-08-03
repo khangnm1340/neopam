@@ -78,8 +78,6 @@ vim.api.nvim_create_autocmd("FileType", {
 --                           End Folding section
 -------------------------------------------------------------------------------
 
-vim.keymap.set("n", "<C-S-O>", ":b#<CR>", { noremap = true, silent = true })
-
 vim.keymap.set("n", "<C-w>e", function()
   local filename = vim.fn.expand("%:p")
   vim.cmd("close")
@@ -89,12 +87,9 @@ end, { desc = "Open window in a new buffer" })
 vim.keymap.set("n", "<C-a>", ":%y<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-S-a>", ":%d<CR>", { noremap = true, silent = true })
 
--- delete to the end of line
-vim.keymap.set("i", "<C-k>", "C", { noremap = true, silent = true })
-
 -- vim.keymap.del("n", "<Leader>sr")
 
-vim.keymap.set("n", "<S-q>", "@q", { noremap = true, silent = true })
+-- vim.keymap.set("n", "<S-q>", "@q", { noremap = true, silent = true })
 
 vim.keymap.set("n", "9", function()
   require("render-markdown").buf_toggle()
@@ -137,4 +132,6 @@ vim.keymap.del("n", "gcc")
 vim.keymap.del("n", "gco")
 vim.keymap.del("n", "gcO")
 
-vim.keymap.set("i", "<C-k>", "C")
+-- delete to the end of lin
+vim.keymap.set("i", "<C-k>", "lC", { noremap = true, silent = true })
+vim.keymap.set("n", "L", ":b#<CR>", { noremap = true, silent = true })
